@@ -1,6 +1,6 @@
 # Laporan Praktikum Kriptografi
 Minggu ke-: 1
-Topik: [judul praktikum]  
+Topik: [Pengenalan Kriptografi]  
 Nama: [Uswatun Khasanah]  
 NIM: [230202782]  
 Kelas: [5IKKA]  
