@@ -65,32 +65,35 @@ Contoh format:
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
-
-```python
-# contoh potongan kode
+# encrypt.py
 def encrypt(text, key):
-    return ...
-```
-)
+    result = ""
+    for char in text:
+        if char.isalpha():  # hanya huruf yang dienkripsi
+            shift = 65 if char.isupper() else 97
+            result += chr((ord(char) - shift + key) % 26 + shift)
+        else:
+            result += char  # karakter non-huruf tidak berubah
+    return result
 
----
+# Contoh penggunaan
+plaintext = input("Masukkan teks yang ingin dienkripsi: ")
+key = int(input("Masukkan kunci (angka): "))
+
+ciphertext = encrypt(plaintext, key)
+print("Hasil enkripsi:", ciphertext)
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
-
 Hasil eksekusi program Caesar Cipher:
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
+![Hasil Eksekusi]()
+
+![Hasil Input](<img width="792" height="442" alt="input" src="https://github.com/user-attachments/assets/5bb084f2-11a8-4240-8ba1-5d747efb2141" />
+g)
+![Hasil Output](<img width="1019" height="211" alt="output" src="https://github.com/user-attachments/assets/df704134-3c53-4e39-bf58-24082732faf9" />
+)
 )
 
----
 
 ## 7. Jawaban Pertanyaan
 (Jawab pertanyaan diskusi yang diberikan pada modul.  
@@ -136,9 +139,30 @@ Dapat di gunakan untuk jenis semua jenis data digital
 
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Teks: uswatun khasanah
+Kunci:`23020278230202782
+1. Hasi
+Karena algoritma Caesar Cipher bekerja dalam 26 huruf alfabet, maka kunci besar seperti 230202782disederhmod.
+230202782
+M
+Hai
+D 
+26
+=
+4
+230202782mod26=4
+Jadi, pergeseran efektif yang digunakan adalah 4 .
+Setelah setiap huruf digeser 4 lan, mencelupkan
+Ciphertext: ywaexyr olewerel
+2.
+Huruf-huruf teks pada bergeser asli sesuai jumlah kunci efektif (4).
+Misal
+u → y
+s → w
+w → a
+a → e, dan sete
+Karakter non-hterpisahtempat spatidak
 
----
 
 ## 9. Daftar Pustaka
 (Cantumkan referensi yang digunakan.  
