@@ -8,9 +8,11 @@ Kelas: [5 IKKA]
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+(Mengidentifikasi komponen dasar kriptosistem (plaintext, ciphertext, kunci, algoritma).
+Menggambarkan proses enkripsi dan dekripsi sederhana.
+Mengklasifikasikan jenis kriptosistem (simetris dan asimetris).
+)
 
----
 
 ## 2. Dasar Teori
 (Ringkas teori relevan (cukup 2–3 paragraf).  
@@ -65,10 +67,42 @@ Hasil eksekusi program Caesar Cipher:
 
 ## 7. Jawaban Pertanyaan
 (Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
----
+- Pertanyaan 1:membayangkan komponen utama dalam sebuah kriptosistem.
+- Pertanyaa 2: Apa kelebihan dan kelemahan sistem simetri dibandingkan asimetris?
+- Pertanyaa 3:Mengapa distribusi kunci masalah menjadi utama dalam kriptografi simetri? 
+ jawab
+1.1. Komponen Utama dalam Kriptosistem
+Sebuah kriptosistem umumnya terdiri dari beberapa komponen utama:
+Plaintext (Teks Biasa):
+Pesan asli yang ingin dikirim atau disimpan dengan aman.
+Ciphertext (Teks Sandi):
+Hasil dari proses enkripsi yang tidak bisa dibaca tanpa kunci.
+Algoritma Enkripsi:
+Prosedur atau rumus untuk mengubah plaintext menjadi ciphertext.
+Algoritma Dekripsi:
+Prosedur untuk mengembalikan ciphertext menjadi plaintext.
+Kunci (Key):
+Nilai rahasia yang digunakan dalam proses enkripsi dan dekripsi.
+
+2. Aspek	Kriptografi Simetri	Kriptografi Asimetris
+Jumlah Kunci 1 kunci (sama untuk enkripsi & dekripsi)	2 kunci (publik & privat)
+Kecepatan	Cepat karena proses matematikanya sederhana	Lebih lambat karena komputasi lebih kompleks
+Keamanan	Aman hanya jika kunci tidak bocor	Lebih aman untuk pertukaran kunci
+Distribusi Kunci	Sulit — kunci harus dikirim secara rahasia	Mudah — kunci publik bisa disebarkan bebas
+Contoh Algoritma	AES, DES, RC4	RSA, ECC, ElGamal
+
+3. Karena pengirim dan penerima menggunakan kunci yang sama, maka:
+Kunci harus dikirim secara aman sebelum komunikasi dimulai.
+Jika kunci bocor di tengah jalan, pihak ketiga bisa mendekripsi semua pesan.
+Semakin banyak pengguna, semakin rumit pengelolaan dan pengiriman kunci rahasia.
+Contoh sederhana:
+Jika 100 orang ingin berkomunikasi aman menggunakan kriptografi simetri, dibutuhkan 4.950 kunci berbeda agar tiap pasangan punya kunci unik — ini sulit dikelola.
+
+Sistem simetri lebih cepat, tapi bermasalah dalam distribusi kunci.
+Sistem asimetris lebih aman dalam distribusi kunci, tapi lebih lambat.
+Dalam praktik modern, keduanya sering digabung:
+→ asimetris untuk pertukaran kunci,
+→ simetris untuk mengenkripsi data utama (contohnya pada protokol HTTPS).)
 
 ## 8. Kesimpulan
 (Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
