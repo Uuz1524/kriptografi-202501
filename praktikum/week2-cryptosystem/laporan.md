@@ -8,13 +8,60 @@ Kelas: [5 IKKA]
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+(Mengidentifikasi komponen dasar kriptosistem (plaintext, ciphertext, kunci, algoritma).
+Menggambarkan proses enkripsi dan dekripsi sederhana.
+Mengklasifikasikan jenis kriptosistem (simetris dan asimetris).)
 
 ---
 
 ## 2. Dasar Teori
-(Ringkas teori relevan (cukup 2–3 paragraf).  
-Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
+( laintext adalah pesan awal yang masih bisa dibaca manusia atau dipahami komputer
+Belum diberi perlindungan keamanan, sehingga kalau disadap orang lain masih terbaca.
+ Algoritma + Kunci
+Komponen terpenting dari kriptosistem, berfungsi untuk mengubah data.
+a. Algoritma Kriptografi
+Serangkaian langkah matematis/logis untuk mengubah plaintext menjadi ciphertext, dan sebaliknya.
+Jenis algoritma:
+Simetris → enkripsi & dekripsi pakai kunci yang sama.
+Contoh: AES, DES, Blowfish.
+Kelebihan: cepat
+Kekurangan: distribusi kunci sulit (bagaimana mengirim kunci dengan aman?).
+Asimetris → ada pasangan kunci: public key (untuk enkripsi) dan private key (untuk dekripsi).
+Contoh: RSA, ECC, ElGamal.
+Kelebihan: distribusi kunci lebih aman.
+Kekurangan: lebih lambat dari simetris.
+b. Kunci (Key)
+Nilai rahasia yang membuat enkripsi/dekripsi unik.
+Tanpa kunci yang benar, ciphertext tidak bisa dibuka.
+Misalnya pada Caesar Cipher: jika plaintext = HELLO, kunci = 3, maka hasilnya KHOOR.
+Kunci adalah inti dari keamanan: semakin panjang/rumit kunci, semakin sulit ditembus.
+3. Ciphertext (Teks Terenkripsi)
+Hasil dari proses enkripsi.
+Bentuknya acak/tidak bermakna, sehingga tidak bisa dipahami tanpa kunci.
+Contoh:
+Plaintext: HELLO
+Ciphertext (Caesar Cipher shift 3): KHOOR
+Jika orang ketiga menyadap pesan, yang terlihat hanya ciphertex
+4. Proses Enkripsi
+Proses mengubah plaintext → ciphertext.
+Dilakukan oleh pengirim pesan.
+Tujuannya menjaga kerahasiaan agar pesan tidak terbaca pihak yang tidak berwenang.
+Contoh:
+Plaintext: RAHASIA
+Kunci: 5
+Ciphertext: WFMDXN
+5. Proses Dekripsi
+Proses kebalikan enkripsi, yaitu mengubah ciphertext → plaintext.
+Dilakukan oleh penerima pesan dengan kunci yang sesuai.
+Jika kunci salah → hasil dekripsi kacau, tidak sesuai.
+Contoh:
+Ciphertext: WFMDXN
+Kunci: 5
+Plaintext hasil dekripsi: RAHASIA
+6. Alur Komunikasi Kriptografi
+Pengirim: menulis pesan (plaintext) → dienkripsi dengan algoritma + kunci → ciphertext dikirim.
+Penerima: menerima ciphertext → didekripsi dengan algoritma + kunci → kembali menjadi plaintext asli.
+Pihak ketiga yang menyadap hanya melihat ciphertext (acak) tanpa bisa membuka isinya.)
 
 ---
 
@@ -29,14 +76,46 @@ Contoh: definisi cipher klasik, konsep modular aritmetika, dll.  )
 ## 4. Langkah Percobaan
 (Tuliskan langkah yang dilakukan sesuai instruksi.  
 Contoh format:
-1. Membuat file `caesar_cipher.py` di folder `praktikum/week2-cryptosystem/src/`.
-2. Menyalin kode program dari panduan praktikum.
-3. Menjalankan program dengan perintah `python caesar_cipher.py`.)
+1. <img width="1341" height="694" alt="asli week2" src="https://github.com/user-attachments/assets/064a90e8-70f7-4515-a6f1-a2e68cc26818" />
+
+
+)
 
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
+# file: praktikum/week2-cryptosystem/src/simple_crypto.py
+
+def encrypt(plaintext, key):
+    result = ""
+    for char in plaintext:
+        if char.isalpha():
+            shift = 65 if char.isupper() else 97
+            result += chr((ord(char) - shift + key) % 26 + shift)
+        else:
+            result += char
+    return result
+
+def decrypt(ciphertext, key):
+    result = ""
+    for char in ciphertext:
+        if char.isalpha():
+            shift = 65 if char.isupper() else 97
+            result += chr((ord(char) - shift - key) % 26 + shift)
+        else:
+            result += char
+    return result
+
+if __name__ == "__main__":
+    message = "<nim><nama>"
+    key = 5
+
+    enc = encrypt(message, key)
+    dec = decrypt(enc, key)
+
+    print("Plaintext :", message)
+    print("Ciphertext:", enc)
+    print("Decrypted :", dec).  
 Gunakan blok kode:
 
 ```python
@@ -65,13 +144,99 @@ Hasil eksekusi program Caesar Cipher:
 
 ## 7. Jawaban Pertanyaan
 (Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
+Komponen Utama Kriptosistem
+Plaintext (Teks Asli)
+Pesan atau data awal yang masih bisa dibaca manusia atau diproses komputer tanpa perlindungan.
+Contoh: “Password123”, “Transfer Rp 1.000.000”.
+Ciphertext (Teks Terenkripsi)
+Hasil enkripsi dari plaintext.
+Bentuknya acak/tidak bermakna, sehingga orang lain tidak bisa membaca tanpa kunci yang benar.
+Contoh: “Xy9#kLm@2”.
+Algoritma Kriptografi
+Metode matematis yang digunakan untuk melakukan enkripsi dan dekripsi.
+Ada dua jenis utama:
+Algoritma Simetris (kunci enkripsi = kunci dekripsi) → Contoh: AES, DES.
+Algoritma Asimetris (kunci enkripsi ≠ kunci dekripsi) → Contoh: RSA, ECC.
+Kunci (Key)
+Data rahasia yang dipakai oleh algoritma untuk mengubah plaintext ↔ ciphertext.
+Kunci memastikan hasil enkripsi berbeda walaupun algoritmanya sama.
+Panjang/kompleksitas kunci menentukan tingkat keamanan.
+Proses Enkripsi
+Transformasi plaintext menjadi ciphertext dengan algoritma + kunci.
+Dilakukan oleh pengirim untuk menjaga kerahasiaan pesan.
+Proses Dekripsi
+Transformasi ciphertext kembali menjadi plaintext menggunakan algoritma + kunci.
+Dilakukan oleh penerima agar pesan bisa dibaca kembali.
+- Pertanyaan 2: …
+
+Kriptografi Simetris
+Ciri: enkripsi dan dekripsi menggunakan kunci yang sama.
+Contoh algoritma: AES, DES, Blowfish.
+Kelebihan:
+Lebih cepat & efisien → cocok untuk enkripsi data dalam jumlah besar (misalnya file, database).
+Lebih sederhana → algoritma lebih ringan dan mudah diimplementasikan.
+Lebih sedikit kebutuhan komputasi → tidak memerlukan operasi matematika yang berat seperti bilangan prima besar.
+Kelemahan:
+Distribusi kunci sulit → bagaimana cara mengirim kunci ke penerima secara aman tanpa disadap?
+Kurang aman bila kunci bocor → siapa pun yang tahu kunci bisa enkripsi & dekripsi semua pesan.
+Tidak cocok untuk komunikasi skala besar (misalnya internet global) karena harus membagikan kunci ke banyak pihak.
+Kriptografi Asimetris
+Ciri: menggunakan dua kunci berbeda:
+Public key (untuk enkripsi, bisa dibagikan).
+Private key (untuk dekripsi, rahasia).
+Contoh algoritma: RSA, ECC, ElGamal.
+Kelebihan:
+Distribusi kunci lebih aman → public key bisa dibagikan bebas tanpa takut disadap.
+Mendukung digital signature → bisa dipakai untuk otentikasi & integritas pesan.
+Lebih cocok untuk sistem terbuka seperti internet.
+Kelemahan:
+Lebih lambat → perhitungan matematis kompleks (eksponensial, bilangan prima besar).
+Tidak efisien untuk data besar → biasanya hanya dipakai untuk enkripsi kunci (lalu kunci itu dipakai di simetris).
+Lebih kompleks dalam implementasi.
+pertanyaan 3
+Mengapa Distribusi Kunci Jadi Masalah Utama dalam Kriptografi Simetris?
+Satu kunci dipakai untuk enkripsi dan dekripsi
+Pada sistem simetris, pengirim dan penerima harus menggunakan kunci yang sama
+Artinya kunci tersebut harus dikirim/dibagikan terlebih dahulu agar komunikasi bisa berjalan.
+Risiko penyadapan saat pengiriman kunci
+Jika kunci dikirim lewat jaringan (misalnya internet), ada kemungkinan pihak ketiga menyadap kunci.
+Jika kunci berhasil dicuri, maka semua pesan (lampau maupun masa depan) bisa dibaca oleh penyadap.
+Kesulitan pada komunikasi banyak pihak
+Untuk komunikasi antara banyak orang, jumlah kunci yang harus dikelola menjadi sangat besar.
+Misalnya, jika ada 100 orang yang ingin saling bertukar pesan rahasia, dibutuhkan ratusan kunci berbeda.
+Tidak ada cara aman bawaan untuk distribusi kunci
+Algoritma simetris sendiri tidak menyediakan mekanisme aman untuk membagikan kunci.
+Dibutuhkan metode tambahan, misalnya menggunakan kurir, saluran aman, atau bantuan kriptografi asimetris.
+Contoh Nyata
+Kamu ingin mengirim pesan rahasia ke teman dengan AES (simetris).
+Kamu perlu memberikan kunci rahasia ke temanmu.
+Pertanyaannya: bagaimana kamu mengirim kunci itu?
+Kalau lewat WhatsApp/Email → bisa saja disadap.
+Kalau lewat telepon → juga bisa disadap.
+Jika penyadap berhasil dapat kuncinya → semua pesan bisa dibuka.
 )
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+Fungsi encrypt(plaintext, key)
+Mengambil setiap karakter pada plaintext.
+Jika huruf (isalpha()), maka dilakukan pergeseran dengan kunci (key) sesuai aturan Caesar Cipher.
+shift = 65 untuk huruf kapital (A–Z), 97 untuk huruf kecil (a–z).
+Operasi (ord(char) - shift + key) % 26 + shift membuat huruf bergeser sesuai kunci dalam alfabet.
+Jika bukan huruf (angka, spasi, simbol), karakter tetap sama.
+Fungsi decrypt(ciphertext, key)
+Proses kebalikan enkripsi.
+Menggeser huruf ke arah kiri dengan kunci yang sama.
+Dengan cara ini ciphertext bisa kembali ke plaintext semula.
+Main Program
+message = "<nim><nama>" → ini adalah teks yang akan dienkripsi (nanti bisa diganti dengan nim & nama kamu).
+key = 5 → kunci enkripsi/dekripsi.
+enc = encrypt(message, key) → hasil enkripsi (ciphertext).
+dec = decrypt(enc, key) → hasil dekripsi kembali jadi plaintext.
+Program akan menampilkan:
+Plaintext : <nim><nama>
+Ciphertext: <hasil enkripsi>
+Decrypted : <nim><nama>.  )
 
 ---
 
