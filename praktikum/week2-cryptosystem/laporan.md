@@ -8,7 +8,10 @@ Kelas: [5 IKKA]
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+(Mengidentifikasi komponen dasar kriptosistem (plaintext, ciphertext, kunci, algoritma).
+Menggambarkan proses enkripsi dan dekripsi sederhana.
+Mengklasifikasikan jenis kriptosistem (simetris dan asimetris).
+.)
 
 ---
 
