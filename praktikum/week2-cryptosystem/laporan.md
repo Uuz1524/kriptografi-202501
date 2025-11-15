@@ -116,13 +116,78 @@ Hasil eksekusi program Caesar Cipher:
 
 ## 7. Jawaban Pertanyaan
 (Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
-)
+- Pertanyaan 1:Komponen utama kriptosistem meliputi plaintext (data asli), ciphertext (data terenkripsi), kunci (nilai rahasia untuk enkripsi/dekripsi), dan algoritma (metode untuk enkripsi dan dekripsi). Kriptosistem juga dapat merujuk pada tiga algoritma: satu untuk pembangkitan kunci, satu untuk enkripsi, dan satu untuk dekripsi
+Komponen utama
+Plaintext: Data atau pesan asli yang ingin dilindungi, yang dapat dibaca oleh manusia sebelum dienkripsi.
+Ciphertext: Bentuk pesan yang telah dienkripsi sehingga tidak dapat dibaca tanpa kunci yang benar.
+Kunci (Key): Informasi rahasia (bisa berupa angka atau string) yang digunakan oleh algoritma untuk mengubah plaintext menjadi ciphertext (enkripsi) dan sebaliknya (dekripsi).
+Algoritma: Metode atau fungsi matematika yang digunakan untuk melakukan enkripsi dan dekripsi. Algoritma ini menerima plaintext dan kunci sebagai masukan untuk menghasilkan ciphertext, dan menerima ciphertext dan kunci untuk menghasilkan plaintext kembali. 
+Komponen tambahan
+Algoritma Pembangkit Kunci: Algoritma yang menghasilkan pasangan kunci (kunci publik dan kunci privat) yang digunakan dalam enkripsi dan dekripsi.    Kunci Enkripsi: Kunci yang digunakan pengirim untuk mengenkripsi pesan.
+Kunci Dekripsi: Kunci yang digunakan penerima untuk mendekripsi pesan
+
+- Pertanyaan 2:Perbandingan antara sistem simetris dan asimetris, khususnya dalam konteks kriptografi (yang merupakan penerapan paling umum dari kedua sistem ini), dapat diringkas berdasarkan kelebihan dan kelemahannya masing-masing
+Sistem Simetris (Kriptografi Kunci Rahasia)
+Sistem simetris menggunakan satu kunci rahasia yang sama baik untuk mengenkripsi maupun mendekripsi data. 
+Kelebihan:
+Kecepatan dan Efisiensi: Proses enkripsi dan dekripsi jauh lebih cepat dan efisien, sehingga ideal untuk mengenkripsi data dalam jumlah besar (enkripsi massal).
+Penggunaan Sumber Daya Rendah: Membutuhkan lebih sedikit daya komputasi (CPU dan memori).
+Algoritma Sederhana: Algoritma yang digunakan umumnya lebih sederhana. 
+Kelemahan:
+Manajemen Kunci yang Rumit: Kunci rahasia harus dibagikan antara pengirim dan penerima melalui saluran yang aman, yang merupakan titik kerentanan utama dalam keamanan.
+Masalah Otentikasi: Sulit untuk memverifikasi identitas pengirim secara pasti, karena kunci yang sama digunakan oleh kedua belah pihak.
+Skalabilitas: Membutuhkan banyak kunci jika ingin berkomunikasi dengan banyak pihak secara rahasia (misalnya, A membutuhkan kunci unik untuk B, C, D, dst.). 
+Sistem Asimetris (Kriptografi Kunci Publik)
+Sistem asimetris menggunakan sepasang kunci yang saling terkait: satu kunci publik (dibagikan secara terbuka) untuk enkripsi, dan satu kunci pribadi (dirahasiakan oleh pemilik) untuk dekripsi. 
+Kelebihan:
+Tidak Perlu Pertukaran Kunci Aman: Kunci publik dapat dibagikan secara terbuka tanpa mengorbankan keamanan, menghilangkan kerentanan utama sistem simetris.
+Otentikasi dan Tanda Tangan Digital: Memungkinkan verifikasi identitas (melalui tanda tangan digital), karena hanya pemilik kunci pribadi yang dapat membuat tanda tangan yang sesuai dengan kunci publiknya.
+Kerahasiaan yang Lebih Kuat: Bahkan jika kunci publik jatuh ke tangan yang salah, data tetap aman karena kunci pribadi diperlukan untuk mendekripsi. 
+Kelemahan:
+Kecepatan Lambat: Proses enkripsi dan dekripsi jauh lebih lambat dan memakan waktu dibandingkan simetris karena algoritmanya yang lebih rumit.
+Penggunaan Sumber Daya Tinggi: Mengonsumsi lebih banyak sumber daya komputasi, membuatnya tidak efisien untuk enkripsi data dalam jumlah besar.
+Kompleksitas Manajemen Kunci: Meskipun pertukaran kunci lebih aman, manajemen pasangan kunci (publik dan pribadi) itu sendiri bisa rumit. 
+kesimpulannya 
+ jadi Secara umum, sistem simetris digunakan untuk kecepatan (enkripsi data massal), sedangkan sistem asimetris digunakan untuk keamanan dalam pertukaran kunci awal dan otentikasi (seperti pada sertifikat SSL/TLS dan VPN). Dalam praktiknya, kedua sistem ini sering digunakan bersama-sama: asimetris digunakan untuk bertukar kunci simetris secara aman, dan simetris kemudian digunakan untuk komunikasi data yang cepat dan efisien
+
+Pertanyaan 3:karena kedua belah pihak harus memiliki kunci rahasia yang sama untuk enkripsi dan dekripsi. Masalah muncul karena kunci ini harus dibagikan melalui saluran yang aman, yang sulit atau tidak mungkin dilakukan dalam skala besar, sehingga ada risiko kunci tersebut dapat dicegat oleh pihak ketiga.
+Masalah utama distribusi kunci
+Kebutuhan saluran aman: Kunci rahasia harus dibagikan secara aman antara pengirim dan penerima sebelum komunikasi dimulai. Jika kunci dikirim melalui saluran yang tidak aman, kunci tersebut bisa disadap dan membahayakan seluruh data yang dienkripsi.
+Skalabilitas: Dalam lingkungan yang melibatkan banyak pengguna, setiap pasangan komunikasi membutuhkan kunci yang berbeda. Ini membuat manajemen kunci menjadi sangat rumit dan tidak praktis untuk jumlah pengguna yang besar.
+Kerentanan saat kunci terkompromi: Jika kunci rahasia jatuh ke tangan yang salah, semua komunikasi terenkripsi dengan kunci tersebut dapat dengan mudah dibobol.  
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+(Kode Python di atas mengimplementasikan sistem kriptografi sederhana berupa Caesar Cipher, yaitu algoritma enkripsi klasik yang melakukan pergeseran (shift) setiap huruf alfabet sebanyak nilai kunci (key) tertentu. 
+Ringkasan dan Kesimpulan: 
+1. Fungsi encrypt(plaintext, key) 
+Menerima teks biasa (plaintext) dan kunci (key).
+Untuk setiap karakter:
+Jika karakter adalah huruf (baik besar maupun kecil), ia digeser ke kanan sebanyak key posisi dalam alfabet (dengan pembungkusan modulus 26 agar tetap dalam rentang A–Z atau a–z).
+Karakter non-alfabet (seperti angka, spasi, tanda baca) tidak diubah.         
+Mengembalikan teks terenkripsi (ciphertext).     
+2. Fungsi decrypt(ciphertext, key) 
+Menerima teks terenkripsi (ciphertext) dan kunci (key).
+Melakukan kebalikan dari enkripsi: menggeser setiap huruf ke kiri sebanyak key posisi.
+Juga melewatkan karakter non-alfabet tanpa perubahan.
+Mengembalikan teks asli (plaintext).     
+4. Bagian if __name__ == "__main__" 
+Digunakan sebagai contoh penggunaan fungsi enkripsi dan dekripsi.
+message = "<nim><nama>" seharusnya diisi dengan NIM dan nama mahasiswa sesuai instruksi praktikum (placeholder).
+Menggunakan kunci tetap key = 5.
+Menampilkan:
+Plaintext asli,
+Ciphertext hasil enkripsi,
+Hasil dekripsi (yang seharusnya sama persis dengan plaintext awal).        
+6. Jenis Algoritma 
+Ini adalah Caesar Cipher dengan pergeseran tetap, termasuk dalam kategori symmetric-key cryptography (karena enkripsi dan dekripsi menggunakan kunci yang sama).
+Tidak aman untuk penggunaan dunia nyata karena mudah dipecahkan dengan brute-force (hanya ada 25 kemungkinan kunci untuk alfabet Inggris)     
+7. Karakteristik Implementasi 
+Case-sensitive: mempertahankan huruf besar/kecil.
+Non-alphabetic characters tetap utuh (tidak dienkripsi).
+Menggunakan representasi ASCII dengan ord() dan chr().     
+Kesimpulan Akhir:
+jadi  implementasi Caesar Cipher sederhana untuk tujuan edukasi (misalnya, tugas praktikum kriptografi dasar). Ia menunjukkan prinsip dasar enkripsi substitusi alfabetik, serta bagaimana operasi modulus digunakan untuk "melingkarkan" alfabet. Namun, tidak cocok untuk keamanan nyata karena sangat rentan terhadap serangan analisis frekuensi atau brute-force.  )
 
 ---
 
@@ -136,11 +201,9 @@ Contoh:
 
 ## 10. Commit Log
 (Tuliskan bukti commit Git yang relevan.  
-Contoh:
-```
-commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
+
+Author: uswatun khasanah <khasanah8952@gmail.com>
+Date:   2025-11-15
 
     week2-cryptosystem: implementasi Caesar Cipher dan laporan )
 ```
