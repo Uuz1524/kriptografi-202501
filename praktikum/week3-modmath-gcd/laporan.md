@@ -124,8 +124,47 @@ Hasil eksekusi program Caesar Cipher:
 
 ## 7. Jawaban Pertanyaan
 (Jawab pertanyaan diskusi yang diberikan pada modul.  
-- Pertanyaan 1: …  
-- Pertanyaan 2: …  
+- Pertanyaan 1:ran Aritmetika Modular dalam Kriptografi Modern 
+Aritmetika modular adalah operasi aritmetika (penjumlahan, perkalian, eksponensiasi, dll.) yang dilakukan dalam himpunan bilangan bulat modulo n , yaitu himpunan Zn​={0,1,2,...,n−1}  dengan operasi dilakukan "dalam siklus" sebesar n . 
+Mengapa penting dalam kriptografi? 
+Sifat satu arah (one-way function): Operasi seperti eksponensiasi modular (c=memodn ) mudah dihitung, tetapi membalikkannya (mencari m  dari c  tanpa mengetahui kunci privat) sangat sulit — inilah dasar keamanan RSA.
+Struktur grup siklik: Grup multiplikatif Zp∗​  (untuk p  prima) atau Zn∗​  (untuk n=pq ) memiliki struktur matematis yang cocok untuk membangun fungsi trapdoor dan protokol pertukaran kunci (misalnya Diffie-Hellman).
+Keterbatasan ruang: Ruang output terbatas (0 sampai n−1 ), memungkinkan representasi data dalam bentuk yang efisien dan konsisten untuk enkripsi/dekripsi.
+Kompatibilitas dengan teorema bilangan: Teorema seperti Fermat’s Little Theorem, Euler’s Theorem, dan Chinese Remainder Theorem (CRT) memberi dasar untuk efisiensi dan keamanan.
+     
+- Pertanyaan 2:2. Mengapa Invers Modular Penting dalam Algoritma Kunci Publik (misalnya RSA)? 
+Invers modular dari a  modulo n  adalah bilangan a−1  sehingga: 
+a⋅a−1≡1(modn) 
+Dalam RSA: 
+Kunci publik: (e,n) , dengan e  dipilih relatif prima terhadap ϕ(n)=(p−1)(q−1) 
+Kunci privat: d , yang merupakan invers modular dari e  modulo ϕ(n) , yaitu:  
+d≡e−1(modϕ(n))ataue⋅d≡1(modϕ(n)) 
+Saat dekripsi:  
+cd≡(me)d=med≡m1+kϕ(n)≡m⋅(mϕ(n))k≡m⋅1k=m(modn) 
+(berlaku jika gcd(m,n)=1 , dan dapat diperluas ke semua m  via CRT.) 
+Tanpa invers modular, tidak mungkin membangun kunci dekripsi d , sehingga RSA tidak akan berfungsi. Invers modular juga digunakan dalam: 
+Penandatanganan digital (DSA, ECDSA)
+Protokol zero-knowledge
+Skema enkripsi berbasis kurva eliptik (modular inverse dalam field hingga
+Invers modular dihitung efisien dengan Extended Euclidean Algorithm, asalkan gcd(a,n)=1 .
+
+Pertanyaan 3:Tantangan Utama dalam Menyelesaikan Logaritma Diskrit untuk Modulus Besar 
+Masalah logaritma diskrit (DLP — Discrete Logarithm Problem): 
+Diberikan grup siklik G , generator g∈G , dan elemen h=gx∈G , temukan x∈Z . 
+Dalam konteks modular: untuk modulus prima p , cari x  sehingga: 
+gx≡h(modp) 
+Tantangan utama: 
+Kompleksitas eksponensial
+Tidak ada algoritma klasik yang diketahui dapat memecahkan DLP dalam waktu polinomial untuk grup umum. Algoritma terbaik (e.g.,
+Number Field Sieve
+untuk Zp∗​ ) masih memiliki kompleksitas sub-eksponensial: exp(O((logp)1/3(loglogp)2/3)) . Untuk modulus 2048-bit, ini tetap tidak praktis.
+Tidak ada struktur linear
+Tidak seperti logaritma real, tidak ada sifat kontinuitas atau kalkulus yang bisa dimanfaatkan — semua operasi diskret dan diskontinu.
+Ketergantungan pada struktur grup
+Efisiensi serangan sangat bergantung pada pilihan grup:\
+• Zp∗​ : rentan terhadap NFS jika p tidak dipilih hati-hati.\
+• Kurva eliptik (ECC): DLP jauh lebih sulit (tidak ada algoritma sub-eksponensial umum), sehingga kunci 256-bit ECC setara dengan 3072-bit RSA.
+Quantum threat
 )
 ---
 
@@ -147,8 +186,8 @@ Contoh:
 Contoh:
 ```
 commit abc12345
-Author: Nama Mahasiswa <email>
-Date:   2025-09-20
+Author: uswatun khasanah <khasanah8952@gamil.com>
+Date:   2025-11-15
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week3-modmath: Aritmetika Modular, GCD, Bilangan Prima, Logaritma Diskrit )
 ```
