@@ -152,10 +152,13 @@ Contoh format:
 Gunakan blok kode:
 
 ```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
-```
+import math
+
+def entropy(keyspace_size):
+    return math.log2(keyspace_size)
+
+print("Entropy ruang kunci 26 =", entropy(26), "bit")
+print("Entropy ruang kunci 2^128 =", entropy(2**128), "bit")
 )
 
 ---
@@ -169,8 +172,10 @@ def encrypt(text, key):
 Hasil eksekusi program Caesar Cipher:
 
 ![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
+![Hasil Input](<img width="1366" height="727" alt="image" src="https://github.com/user-attachments/assets/36cb26e4-c1df-4e01-9e6c-a03aed74f151" />
+)
+![Hasil Output](<img width="722" height="246" alt="image" src="https://github.com/user-attachments/assets/2cb78f94-ff92-49c9-b6e9-0bca99fe06ec" />
+)
 )
 
 ---
@@ -186,9 +191,24 @@ Hasil eksekusi program Caesar Cipher:
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
-
----
+( Entropi Ruang Kunci 26
+Menghitung entropi untuk ruang kunci berukuran 26 (misalnya: huruf alfabet A-Z).
+Rumus: log₂(26) ≈ 4.7 bit
+Artinya: Dibutuhkan sekitar 4.7 bit informasi untuk menggambarkan satu kemungkinan kunci dalam ruang 26 elemen.
+Ini menunjukkan bahwa kekuatan kriptografi dengan hanya 26 kemungkinan kunci sangat lemah — bisa dipecahkan dengan mudah (brute force).
+2. Entropi Ruang Kunci 2¹²⁸
+Menghitung entropi untuk ruang kunci berukuran 2¹²⁸ (misalnya: kunci AES-128).
+Rumus: log₂(2¹²⁸) = 128 bit
+Artinya: Dibutuhkan tepat 128 bit informasi untuk menggambarkan satu kemungkinan kunci.
+Ini menunjukkan tingkat keamanan yang sangat tinggi — hampir mustahil untuk dipecahkan secara brute force dengan teknologi saat ini.
+Kesimpulan Utama:
+Semakin besar ruang kunci, semakin tinggi entropinya — dan semakin kuat keamanan sistem kriptografinya.
+uang kunci kecil (misal: 26) → Entropi rendah → Mudah ditembus.
+Ruang kunci besar (misal: 2¹²⁸) → Entropi tinggi → Sangat aman.
+Ini adalah dasar penting dalam kriptografi modern:
+Kkuatan kunci tidak hanya tergantung pada panjangnya, tapi juga pada ukuran ruang kuncinya.
+Entropi adalah ukuran matematis dari ketidakpastian atau keacakan — semakin tinggi, semakin sulit ditebak.
+)
 
 ## 9. Daftar Pustaka
 (Cantumkan referensi yang digunakan.  
