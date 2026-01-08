@@ -1,0 +1,69 @@
+def mod_add(a, b, n):
+    return (a + b) % n
+
+def mod_sub(a, b, n):
+    return (a - b) % n
+
+def mod_mul(a, b, n):
+    return (a * b) % n
+
+def mod_exp(base, exp, n):
+    return pow(base, exp, n)
+
+def egcd(a, b):
+    """Extended Euclidean Algorithm: returns (g, x, y) such that a*x + b*y = g = gcd(a, b)"""
+    if a == 0:
+        return b, 0, 1
+    g, x1, y1 = egcd(b % a, a)
+    return g, y1 - (b // a) * x1, x1
+
+def mod_inv(a, n):
+    """Modular inverse of a modulo n (a⁻¹ mod n), exists iff gcd(a, n) = 1"""
+    g, x, _ = egcd(a % n, n)
+    if g != 1:
+        raise ValueError(f"Invers modular tidak ada: gcd({a}, {n}) = {g} ≠ 1")
+    return x % n
+
+# Contoh penggunaan dasar
+print("=== Operasi Dasar Aritmetika Modular ===")
+print("7 + 5 mod 12 =", mod_add(7, 5, 12))
+print("7 - 5 mod 12 =", mod_sub(7, 5, 12))
+print("7 * 5 mod 12 =", mod_mul(7, 5, 12))
+print("7^128 mod 13 =", mod_exp(7, 128, 13))
+
+print("\n=== Invers Modular ===")
+try:
+    inv_5_mod_12 = mod_inv(5, 12)
+    print(f"5⁻¹ mod 12 = {inv_5_mod_12} (karena 5 × {inv_5_mod_12} = {mod_mul(5, inv_5_mod_12, 12)} ≡ 1 mod 12)")
+    
+    inv_7_mod_13 = mod_inv(7, 13)
+    print(f"7⁻¹ mod 13 = {inv_7_mod_13} (karena 7 × {inv_7_mod_13} = {mod_mul(7, inv_7_mod_13, 13)} ≡ 1 mod 13)")
+except ValueError as e:
+    print("Error:", e)
+
+print("\n=== Simulasi RSA Mini (hanya untuk demo edukasi!) ===")
+# Pilih bilangan prima kecil
+p, q = 11, 13
+n = p * q
+phi = (p - 1) * (q - 1)
+
+# Pilih e (relatif prima terhadap phi)
+e = 7
+assert egcd(e, phi)[0] == 1, "e harus koprima dengan φ(n)"
+
+# Hitung d = e⁻¹ mod φ(n)
+d = mod_inv(e, phi)
+
+print(f"p = {p}, q = {q} → n = {n}, φ(n) = {phi}")
+print(f"Kunci publik: (e={e}, n={n})")
+print(f"Kunci privat: d = {d}")
+
+# Enkripsi & dekripsi pesan (misal m = 9)
+m = 9
+c = mod_exp(m, e, n)
+m_decrypted = mod_exp(c, d, n)
+
+print(f"Pesan asli: m = {m}")
+print(f"Ciphertext: c = m^e mod n = {c}")
+print(f"Dekripsi: c^d mod n = {m_decrypted}")
+print("✅ Berhasil!" if m == m_decrypted else "❌ Gagal")
