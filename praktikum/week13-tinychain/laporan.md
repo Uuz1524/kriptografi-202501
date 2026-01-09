@@ -1,14 +1,17 @@
 # Laporan Praktikum Kriptografi
 Minggu ke-: X  
-Topik: [judul praktikum]  
-Nama: [Nama Mahasiswa]  
-NIM: [NIM Mahasiswa]  
-Kelas: [Kelas]  
+Topik: [TinyChain – Proof of Work (PoW)]  
+Nama: [Uswatun Khasanah]  
+NIM: [230202782]  
+Kelas: [5 IKKA]  
 
 ---
 
 ## 1. Tujuan
-(Tuliskan tujuan pembelajaran praktikum sesuai modul.)
+(
+    Menjelaskan peran hash function dalam blockchain.
+    Melakukan simulasi sederhana Proof of Work (PoW).
+    Menganalisis keamanan cryptocurrency berbasis kriptografi.)
 
 ---
 
