@@ -177,5 +177,5 @@ Contoh:
 Author: uswatun kasanah <khasanah@gmail.com>
 Date:   2025-11-16
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week7-cryptosystem: diffie-hellman )
 ```
