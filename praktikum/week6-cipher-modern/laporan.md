@@ -274,7 +274,7 @@ b. Kecepatan dan Efisiensi
 AES lebih efisien di software dan hardware modern.
 Algoritma AES dioptimalkan untuk prosesor modern dan mendukung parallel processing, sedangkan DES tidak.
 c. Keamanan Struktur
-AES menggunakan Substitution–Permutation Network (SPN), bukan Feistel seperti DES.
+AES menggunakan Substitution–Permutation Network (SPN), bukan Feistel seperti DES
 SPN lebih kuat terhadap berbagai serangan modern seperti differential cryptanalysis dan linear cryptanalysis.
 d. Standar Global
 AES ditetapkan sebagai standar resmi NIST (FIPS-197) sejak 2001.
