@@ -9,7 +9,7 @@ Kelas: [5IKKA]
 
 ## 1. Tujuan
 (Mengimplementasikan algoritma DES untuk blok data sederhana
-Menerapkan algoritma AES dengan panjang kunci 128 bit.
+Menerapkan algoritma AES dengan panjang kunci 128 bit
 Menjelaskan proses pembangkitan kunci publik dan privat pada algoritma RSA.
 )
 
