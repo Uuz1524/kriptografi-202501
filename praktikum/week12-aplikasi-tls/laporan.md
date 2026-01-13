@@ -34,6 +34,7 @@ Selain itu, koneksi HTTPS menggunakan cipher suite TLS modern yang secara umum m
 AES untuk enkripsi data simetris selama sesi.
 ECDHE untuk pertukaran kunci cepat dan aman (tergantung setelan server/browser).
 Detail cipher suite lengkap dapat dilihat di konsol browser (Developer Tools) → Security.
+
 2. Bandingkan Website dengan HTTPS vs tanpa HTTPS
 Website dengan HTTPS (aman)
 Contoh: Shopee Indonesia (https://www.shopee.co.id)
@@ -68,7 +69,7 @@ RSA 2048 + SHA-256 (Signature)
 Status HTTPS
 Aktif & aman  )
 
-2.Isu Privasi dalam Penggunaan Email Terenkripsi (PGP & S/MIME)
+2.Isu privasi dalam Penggunaan Email Terenkripsi (PGP & S/MIME)
 Walaupun PGP dan S/MIME melindungi isi email, masih ada beberapa isu privasi penting:
 a. Metadata Masih Terbaca
 Yang terenkripsi hanya isi pesan, bukan:
@@ -88,7 +89,7 @@ Jika CA diretas atau salah menerbitkan sertifikat → orang lain bisa menyamar s
 d. Konflik antara Keamanan & Akses Organisasi
 Email terenkripsi bisa membuat perusahaan tidak bisa memantau isi email karyawan, sehingga berpotensi menghambat audit atau investigasi internal.
 Dilema Etika
- Apakah perusahaan boleh mendekripsi email karyawan untuk audit?
+Apakah perusahaan boleh mendekripsi email karyawan untuk audit?
 Sudut Pandang Perusahaan	Sudut Pandang Privasi
 Perusahaan perlu melindungi aset & data rahasia	Email adalah komunikasi pribadi
 Untuk mencegah kebocoran data & kejahatan internal	Dekripsi tanpa izin melanggar privasi
