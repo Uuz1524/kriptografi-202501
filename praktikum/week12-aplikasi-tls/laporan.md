@@ -69,7 +69,7 @@ RSA 2048 + SHA-256 (Signature)
 Status HTTPS
 Aktif & aman  )
 
-2.Isu privasi dalam Penggunaan Email Terenkripsi (PGP & S/MIME)
+    2.Isu privasi dalam Penggunaan Email Terenkripsi (PGP & S/MIME)
 Walaupun PGP dan S/MIME melindungi isi email, masih ada beberapa isu privasi penting:
 a. Metadata Masih Terbaca
 Yang terenkripsi hanya isi pesan, bukan:
