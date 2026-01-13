@@ -9,7 +9,7 @@ Kelas: [5 IKKA]
 
 ## 1. Tujuan
 (Menyelesaikan operasi aritmetika modular.
-Menentukan bilangan prima dan menghitung GCD (Greatest Common Divisor).
+Menentukan bilangan prima dan menghitung GCD (Greatest Common Divisor)
 Menerapkan logaritma diskrit sederhana dalam simulasi kriptografi)
 
 ---
