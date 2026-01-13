@@ -1,5 +1,5 @@
 # Laporan Praktikum Kriptografi
-Minggu ke-: X  
+Minggu ke-: 12
 Topik: [Aplikasi TLS & E-commerce]  
 Nama: [Uswatun Khasanah]  
 NIM: [230202782]  
