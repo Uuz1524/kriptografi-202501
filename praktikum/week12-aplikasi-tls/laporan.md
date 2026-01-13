@@ -19,7 +19,7 @@ Kelas: [5IKKA]
 ## 2. Dasar Teori
 (Informasi Sertifikat SSL/TLS Shopee
 Issuer CA (Certificate Authority)
-✔ Sertifikat *.shopee.co.id diterbitkan oleh GlobalSign GCC R6 AlphaSSL CA 2023, yang merupakan otoritas sertifikat dari GlobalSign nv-sa — sebuah Certificate Authority yang tepercaya dan dikenal luas.
+Sertifikat .shopee.co.id diterbitkan oleh GlobalSign GCC R6 AlphaSSL CA 2023, yang merupakan otoritas sertifikat dari GlobalSign nv-sa — sebuah Certificate Authority yang tepercaya dan dikenal luas.
 Masa Berlaku Sertifikat
 Berdasarkan pemeriksaan SSL:
 Valid from: 24 Mar 2025
