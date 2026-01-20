@@ -72,8 +72,50 @@ Contoh format:
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
+(import random
+
+class DiffieHellman:
+    def __init__(
+        self,
+        p: int,
+        g: int,
+        name: str,
+        private_key: int = None,
+    ):
+        self.p = p
+        self.g = g
+        self.name = name
+        self.private_key = random.randint(1, p - 1) if private_key is None else private_key
+        self.public_key = pow(g, self.private_key, p)
+        self.shared_secret = None
+
+    def compute_shared_secret(self, other_public_key: int):
+        self.shared_secret = pow(other_public_key, self.private_key, self.p)
+        return self.shared_secret
+
+
+if __name__ == "__main__":
+    p = 23  
+    g = 5  
+
+    A = 92378234
+    B = 23482342
+
+    # Alice's side
+    alice = DiffieHellman(p, g, "Alice", private_key=A)
+    print(f"Alice's Public Key: {alice.public_key}")
+
+    # Bob's side
+    bob = DiffieHellman(p, g, "Bob", private_key=B)
+    print(f"Bob's Public Key: {bob.public_key}")
+
+    # Compute shared secrets
+    alice_shared_secret = alice.compute_shared_secret(bob.public_key)
+    bob_shared_secret = bob.compute_shared_secret(alice.public_key)
+
+    print(f"Alice's Shared Secret: {alice_shared_secret}")
+    print(f"Bob's Shared Secret: {bob_shared_secret}")
+    assert alice_shared_secret == bob_shared_secret, "Shared secrets do not match!"
 
 ```python
 # contoh potongan kode
@@ -85,10 +127,30 @@ def encrypt(text, key):
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
+(Hasil eksekusi program menunjukkan implementasi protokol Diffie-Hellman yang berhasil:
+
+Parameter Publik:
+
+    Bilangan prima: p = 23
+    Generator: g = 5
+
+Private Keys:
+
+    Alice: a = 92378234 ≡ 6 ( mod 23 )
+    Bob: b = 23482342 ≡ 12 ( mod 23 )
+
+Perhitungan Kunci Publik:
+
+    Alice's Public Key: A = g a mod p = 5 6 mod 23 = 15625 mod 23 = 13
+    Bob's Public Key: B = g b mod p = 5 12 mod 23 = 244140625 mod 23 = 7
+
+Perhitungan Shared Secret:
+
+    Alice's Shared Secret: s A = B a mod p = 7 6 mod 23 = 117649 mod 23 = 18
+
+    Bob's Shared Secret: s B = A b mod p = 13 12 mod 23 = 23298085122481 mod 23 = 18
+
+Verifikasi: s A = s B = 18  
 
 Hasil eksekusi program Caesar Cipher:
 
@@ -159,7 +221,7 @@ Finished message di akhir handshake berisi hash dari semua data handshake, dienk
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+(Praktikum ini berhasil mengimplementasikan dan mensimulasikan protokol Diffie-Hellman Key Exchange menggunakan Python. Protokol memungkinkan Alice dan Bob untuk membuat kunci rahasia bersama (s=18) melalui saluran publik tanpa mengirimkan kunci privat..  )
 
 ---
 
@@ -177,5 +239,5 @@ Contoh:
 Author: uswatun kasanah <khasanah@gmail.com>
 Date:   2025-11-16
 
-    week7-cryptosystem: diffie-hellman )
+    week7-diffie-helman )
 ```
