@@ -137,32 +137,46 @@ Contoh format:
 ---
 
 ## 5. Source Code
-(Salin kode program utama yang dibuat atau dimodifikasi.  
-Gunakan blok kode:
+Sertifikat
+Masa Berlaku Sertifikat
 
-```python
-# contoh potongan kode
-def encrypt(text, key):
-    return ...
-```
-)
+    Not Before: 15 Januari 2024  
+    Not After: 19 Januari 2025  
 
----
+        → Masa berlaku: 1 tahun (standar industri untuk sertifikat OV/EV).
+<img width="894" height="717" alt="image" src="https://github.com/user-attachments/assets/23952b90-f028-4fa4-a583-0ed072a1b2cf" />
+
+
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
+Perbedaan HTTPS vs HTTP (Tanpa SSL/TLS)
 
-Hasil eksekusi program Caesar Cipher:
+Aspek	                       HTTPS (Shopee)                   HTTP (Situs Tanpa SSL)
+Keamanan Data	    ✅ Terenkripsi end-to-end	                ❌ Data dikirim dalam bentuk plain text
+Autentikasi         ✅ Identitas server diverifikasi oleh CA	❌ Tidak ada verifikasi — bisa jadi situs palsu
+Integritas	        ✅ Data tidak bisa diubah di tengah jalan	❌ Rentan dimodifikasi (man-in-the-middle)
+Peringatan Browser	✅ Tidak ada peringatan — "Secure"       	❌ Ditandai sebagai **“Not Secure”**
+SEO & Kepercayaan	✅ Diutamakan Google, pengguna percaya    	❌ Pengguna ragu, tingkat bounce tinggi
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
 
----
+Algoritma Enkripsi & Kriptografi
+Komponen                                         Algoritma
+Public Key                                       RSA 2048-bit        
+Signature Hash                                   SHA256withRSA
+Koneksi Aman (Cipher Suite)                      TLS_AES_128_GCM_SHA256 (TLS 1.3) atau  TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (TLS 1.2)
+Protokol                                         TLS 1.2 dan TLS 1.3 (versi aman terbaru)
+
+Artinya:
+
+Identitas Shopee diverifikasi secara organisasi (OV – Organization Validation).
+Data ditransmisikan dengan enkripsi AES-128-GCM (sangat aman).
+Kunci pertukaran menggunakan ECDHE (Perfect Forward Secrecy).
+
+Kesimpulan Analisis
+Shopee menggunakan SSL/TLS modern dengan sertifikat dari CA tepercaya (DigiCert).
+Mengimplementasikan enkripsi kuat (AES-128-GCM) dan Perfect Forward Secrecy.
+HTTPS wajib untuk e-commerce karena menangani data sensitif (login, pembayaran, alamat).
+Situs tanpa HTTPS tidak layak dipercaya untuk transaksi apa pun.
 
 ## 7. Jawaban Pertanyaan
 (Jawab pertanyaan diskusi yang diberikan pada modul.  
@@ -199,7 +213,9 @@ Keamanan transaksi meningkat	Potensi konflik antara hak privasi dan penegakan hu
 ---
 
 ## 8. Kesimpulan
-(Tuliskan kesimpulan singkat (2–3 kalimat) berdasarkan percobaan.  )
+(Shopee menerapkan SSL/TLS secara optimal dengan sertifikat digital dari Certificate Authority tepercaya (DigiCert), menggunakan enkripsi kuat (RSA 2048-bit + AES-128-GCM) dan protokol keamanan terbaru (TLS 1.2/1.3). Penerapan HTTPS ini menjamin kerahasiaan, integritas, dan autentikasi data pengguna — terutama saat login, bertransaksi, atau mengakses informasi pribadi.
+
+Sebaliknya, situs tanpa HTTPS tidak aman, rentan penyadapan, dan tidak layak digunakan untuk aktivitas sensitif. Dengan demikian, SSL/TLS bukan lagi pilihan, melainkan keharusan mutlak bagi platform e-commerce modern seperti Shopee untuk melindungi privasi pengguna dan membangun kepercayaan digital.  )
 
 ---
 
