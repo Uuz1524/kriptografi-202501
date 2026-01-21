@@ -153,10 +153,8 @@ Perhitungan Shared Secret:
 Verifikasi: s A = s B = 18  
 
 Hasil eksekusi program Caesar Cipher:
+<img width="1013" height="285" alt="image" src="https://github.com/user-attachments/assets/504e8daf-e864-4e3e-a100-05788588e041" />
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
 )
 
 ---
