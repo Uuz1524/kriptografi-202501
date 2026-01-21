@@ -220,17 +220,33 @@ else:
 ---
 
 ## 6. Hasil dan Pembahasan
-(- Lampirkan screenshot hasil eksekusi program (taruh di folder `screenshots/`).  
-- Berikan tabel atau ringkasan hasil uji jika diperlukan.  
-- Jelaskan apakah hasil sesuai ekspektasi.  
-- Bahas error (jika ada) dan solusinya. 
+(AES (Advanced Encryption Standard):
 
-Hasil eksekusi program Caesar Cipher:
+    Plaintext: "Modern AES encryption in EAX mode"
+    Key: Random 16 bytes (128-bit)
+    Mode: EAX (Encrypt-then-Authenticate-then-Translate)
+    Hasil: Enkripsi berhasil dengan tag autentikasi, dekripsi mengembalikan plaintext yang benar
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
+   <img width="986" height="160" alt="image" src="https://github.com/user-attachments/assets/940491bf-00f6-4f0b-9c0e-00952dad73f7" />
+
+
+DES (Data Encryption Standard):
+Plaintext: "ABCDEFGH" (8 bytes)
+Key: Random 8 bytes (64-bit)
+Mode: ECB (Electronic Codebook)
+Hasil: Ciphertext dalam bentuk bytes yang berhasil didekripsi kembali ke plaintext asli Output DES 
+
+<img width="1017" height="234" alt="image" src="https://github.com/user-attachments/assets/0170d61f-18cb-4177-9d32-ff35ab7a4f7b" />
+
+RSA (Rivest-Shamir-Adleman):
+Plaintext: "Modern RSA encryption with OAEP padding"
+Key size: 2048-bit
+Padding: OAEP (Optimal Asymmetric Encryption Padding)
+Hasil: Enkripsi dengan public key dan dekripsi dengan private key berhasil Output RSA 
+
+
+<img width="1012" height="267" alt="image" src="https://github.com/user-attachments/assets/a866f63b-fc61-4f32-992d-23ad6c51ef42" />
+
 
 ---
 
@@ -424,8 +440,8 @@ Contoh:
 Contoh:
 ```
 commit abc12345
-Author: Nama Mahasiswa <email>
+Author: Uswatun khasanah <khasanah8952@gmail.com>
 Date:   2025-09-20
 
-    week2-cryptosystem: implementasi Caesar Cipher dan laporan )
+    week6-cipher-modern: implementasi cipher-modern  dan laporan )
 ```
