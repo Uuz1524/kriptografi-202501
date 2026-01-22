@@ -304,7 +304,6 @@ Network 	        Single node 	                        Distributed P2P           
 Persistence 	    JSON file                             	LevelDB                                        	LevelDB/Geth
 Incentive          	None 	                                Block reward + fees 	                        Gas fees
 ---
-
 ## 7. Jawaban Pertanyaan
  1: Mengapa fungsi hash sangat penting dalam blockchain?
 
