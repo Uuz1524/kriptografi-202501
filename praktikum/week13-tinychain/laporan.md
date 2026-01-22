@@ -1,7 +1,7 @@
 # Laporan Praktikum Kriptografi
 Minggu ke-: 13
 Topik: [TinyChain – Proof of Work (PoW)]  
-Nama: [Uswatun Khasanah] 
+Nama: [Uswatun Khasanah]
 NIM: [230202782] 
 Kelas: [5 IKKA]  
 
