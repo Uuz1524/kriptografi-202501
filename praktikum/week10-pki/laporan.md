@@ -266,16 +266,9 @@ if __name__ == "__main__":
     
 
 ## 6. Hasil dan Pembahasan
-( 
 
-Hasil eksekusi program Caesar Cipher:
+<img width="1043" height="557" alt="image" src="https://github.com/user-attachments/assets/9874b4cf-e097-4c9c-87c3-10be50c9d321" />
 
-![Hasil Eksekusi](screenshots/output.png)
-![Hasil Input](screenshots/input.png)
-![Hasil Output](screenshots/output.png)
-)
-
----
 
 ## 7. Jawaban Pertanyaan
  
